@@ -3,10 +3,6 @@ import qualified Graphics.UI.SDL.Types as SDL
 import qualified Graphics.UI.SDL.Event as SDL.Event
 import qualified Graphics.UI.SDL.Video as SDL.Video
 
-import Data.Word
-
-import Control.Monad (forever)
-
 import Foreign.Ptr
 import Foreign.Marshal.Alloc
 import Foreign
