@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 import qualified Graphics.UI.SDL.Basic as SDL
 import qualified Graphics.UI.SDL.Types as SDL
 import qualified Graphics.UI.SDL.Event as SDL.Event
@@ -55,6 +53,4 @@ main = do
 	SDL.Video.destroyTexture texture
 	SDL.Video.destroyRenderer renderer
 	SDL.Video.destroyWindow window
-
-	--updateRect screen (Rect 0 0 actualWidth actualHeight)
 	
