@@ -17,15 +17,14 @@ windowHeight 	= 600
 windowTitle  	= "SDL2 Bitmapped Window"
 bitmapPath	 	= "haskell.bmp"
 
-eventLoop renderer = (malloc :: IO (Ptr SDL.Event)) >>= eventLoop0 renderer
-			where eventLoop0 renderer eventPtr = 
+eventLoop = (malloc :: IO (Ptr SDL.Event)) >>= eventLoop0
+			where eventLoop0 eventPtr = 
 				do
-					SDL.Video.renderPresent renderer
 					SDL.Event.waitEvent eventPtr
 					event <- peek eventPtr
 					case event of
 						SDL.QuitEvent _ _ -> return ()
-						otherwise -> eventLoop0 renderer eventPtr
+						otherwise -> eventLoop0 eventPtr
 
 
 main = do
@@ -48,9 +47,8 @@ main = do
 	
 	SDL.Video.freeSurface bmp
 			
-	eventLoop renderer
+	eventLoop
 
 	SDL.Video.destroyTexture texture
 	SDL.Video.destroyRenderer renderer
 	SDL.Video.destroyWindow window
-	
